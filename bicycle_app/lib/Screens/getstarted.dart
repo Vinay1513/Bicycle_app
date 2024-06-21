@@ -1,3 +1,4 @@
+import 'package:bicycle_app/Screens/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -71,7 +72,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
           top: 670,
           left: 190,
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 color: Color.fromRGBO(36, 44, 59, 1),
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(38),
@@ -82,18 +83,27 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 5.0),
-                  child: Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color.fromRGBO(75, 76, 237, 1),
-                        border: Border.all(
-                            color: Color.fromRGBO(239, 186, 51, 1), width: 5)),
-                    child: Center(
-                      child: Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.white,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomeScreen()));
+                    },
+                    child: Container(
+                      height: 70,
+                      width: 70,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: const Color.fromRGBO(75, 76, 237, 1),
+                          border: Border.all(
+                              color: const Color.fromRGBO(239, 186, 51, 1),
+                              width: 5)),
+                      child: const Center(
+                        child: Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
@@ -105,7 +115,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                     style: GoogleFonts.poppins(
                         fontSize: 25,
                         fontWeight: FontWeight.w500,
-                        color: Color.fromRGBO(255, 255, 255, 1)),
+                        color: const Color.fromRGBO(255, 255, 255, 1)),
                   ),
                 )
               ],
